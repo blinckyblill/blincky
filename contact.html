@@ -48,7 +48,26 @@
             <h2>Stuur een bericht</h2>
 
             <!-- Static form: uses mailto so it works on GitHub Pages (no backend). -->
-            <form class="form" action="mailto:contactblinckybill@gmail.com" method="post" enctype="text/plain">
+            <form class="form" id="waForm">
+  <label>
+    Naam
+    <input id="waName" required placeholder="Jouw naam" />
+  </label>
+
+  <label>
+    Telefoon
+    <input id="waPhone" placeholder="06..." />
+  </label>
+
+  <label>
+    Bericht
+    <textarea id="waMsg" required rows="5" placeholder="Wat wil je laten doen?"></textarea>
+  </label>
+
+  <button class="btn primary" type="submit">Verstuur via WhatsApp</button>
+
+  <p class="muted small">*De knop opent WhatsApp met je bericht.</p>
+</form>
               <label>
                 Naam
                 <input name="Naam" required placeholder="Jouw naam" />
@@ -84,4 +103,5 @@
   <script src="script.js"></script>
 </body>
 </html>
+
 
