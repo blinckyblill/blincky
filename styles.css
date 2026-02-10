@@ -235,3 +235,9 @@ input:focus, textarea:focus{ border-color: rgba(124,92,255,.7); }
   }
   .nav.open{ display:flex; }
 }
+.logo{
+  height:42px;
+  width:auto;
+  border-radius:8px;
+}
+
