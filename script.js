@@ -55,3 +55,25 @@ window.closeModal = function () {
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") window.closeModal?.();
 });
+// WhatsApp contact form (no backend needed)
+const waForm = document.getElementById("waForm");
+
+if (waForm) {
+  waForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const name = document.getElementById("waName")?.value.trim() || "";
+    const phone = document.getElementById("waPhone")?.value.trim() || "";
+    const msg = document.getElementById("waMsg")?.value.trim() || "";
+
+    const text =
+      `Hoi BlinckyBill Keukens!\n\n` +
+      `Naam: ${name}\n` +
+      (phone ? `Telefoon: ${phone}\n` : "") +
+      `\nBericht:\n${msg}`;
+
+    const url = `https://wa.me/31616698106?text=${encodeURIComponent(text)}`;
+    window.open(url, "_blank");
+  });
+}
+
