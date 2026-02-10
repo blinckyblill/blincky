@@ -195,15 +195,17 @@ input:focus, textarea:focus{ border-color: rgba(124,92,255,.7); }
 .modal{ position:fixed; inset:0; display:none; }
 .modal.open{ display:block; }
 .modal-backdrop{ position:absolute; inset:0; background: rgba(0,0,0,.55); }
+.modal{
+  position:fixed;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
 .modal-card{
-  position:relative;
   width:min(720px, calc(100% - 26px));
-  margin: 6vh auto;
-  padding: 14px;
-  border-radius: var(--radius);
-  border: 1px solid var(--line);
-  background: rgba(18,20,32,.96);
-  box-shadow: var(--shadow);
+  padding:14px;
+  border-radius:18px;
 }
 .modal-close{
   position:absolute; top:10px; right:10px;
@@ -254,6 +256,7 @@ input:focus, textarea:focus{ border-color: rgba(124,92,255,.7); }
   border-radius:10px;
   filter: drop-shadow(0 4px 8px rgba(0,0,0,.4));
 }
+
 
 
 
