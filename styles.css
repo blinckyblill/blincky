@@ -236,8 +236,11 @@ input:focus, textarea:focus{ border-color: rgba(124,92,255,.7); }
   .nav.open{ display:flex; }
 }
 .logo{
-  height:42px;
+  height:46px;
   width:auto;
-  border-radius:8px;
+  border-radius:10px;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,.4));
 }
+
+
 
