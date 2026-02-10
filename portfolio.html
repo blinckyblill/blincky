@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio | BlinckyBill Keukens</title>
+  <meta name="description" content="Portfolio van BlinckyBill Keukens: projecten en resultaten." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">BB</span>
+        <span class="brand-text"><strong>BlinckyBill</strong><small>Keukens</small></span>
+      </a>
+      <button class="nav-toggle" aria-label="Menu" aria-expanded="false">☰</button>
+      <nav class="nav" data-nav>
+        <a href="index.html">Home</a>
+        <a href="diensten.html">Diensten</a>
+        <a class="active" href="portfolio.html">Portfolio</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="section">
+      <div class="container">
+        <h1>Portfolio</h1>
+        <p class="lead">Klik pe un proiect ca să vezi detalii (mock). Înlocuiești “placeholders” cu pozele tale.</p>
+
+        <div class="filters">
+          <button class="chip active" data-filter="all">Toate</button>
+          <button class="chip" data-filter="montage">Montage</button>
+          <button class="chip" data-filter="renovatie">Renovatie</button>
+          <button class="chip" data-filter="maatwerk">Maatwerk</button>
+        </div>
+
+        <div class="gallery" id="gallery">
+          <a class="g-item" data-tag="montage" href="#" onclick="openModal('Moderne keuken', 'Montage + afwerking', 'Foto 1'); return false;">
+            <div class="ph">Foto 1</div>
+            <div class="g-meta">
+              <strong>Moderne keuken</strong>
+              <span class="muted small">Montage</span>
+            </div>
+          </a>
+
+          <a class="g-item" data-tag="renovatie" href="#" onclick="openModal('Werkblad renovatie', 'Werkblad + spoelbak', 'Foto 2'); return false;">
+            <div class="ph">Foto 2</div>
+            <div class="g-meta">
+              <strong>Werkblad renovatie</strong>
+              <span class="muted small">Renovatie</span>
+            </div>
+          </a>
+
+          <a class="g-item" data-tag="maatwerk" href="#" onclick="openModal('Passtukken & panelen', 'Maatwerk afwerking', 'Foto 3'); return false;">
+            <div class="ph">Foto 3</div>
+            <div class="g-meta">
+              <strong>Passtukken & panelen</strong>
+              <span class="muted small">Maatwerk</span>
+            </div>
+          </a>
+
+          <a class="g-item" data-tag="montage" href="#" onclick="openModal('Apparatuur plaatsing', 'Kookplaat/oven', 'Foto 4'); return false;">
+            <div class="ph">Foto 4</div>
+            <div class="g-meta">
+              <strong>Apparatuur plaatsing</strong>
+              <span class="muted small">Montage</span>
+            </div>
+          </a>
+
+          <a class="g-item" data-tag="renovatie" href="#" onclick="openModal('Fronten upgrade', 'Nieuwe look', 'Foto 5'); return false;">
+            <div class="ph">Foto 5</div>
+            <div class="g-meta">
+              <strong>Fronten upgrade</strong>
+              <span class="muted small">Renovatie</span>
+            </div>
+          </a>
+
+          <a class="g-item" data-tag="maatwerk" href="#" onclick="openModal('Koof & plinten', 'Nette afwerking', 'Foto 6'); return false;">
+            <div class="ph">Foto 6</div>
+            <div class="g-meta">
+              <strong>Koof & plinten</strong>
+              <span class="muted small">Maatwerk</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal -->
+    <div class="modal" id="modal" aria-hidden="true">
+      <div class="modal-backdrop" onclick="closeModal()"></div>
+      <div class="modal-card" role="dialog" aria-modal="true" aria-label="Project details">
+        <button class="modal-close" onclick="closeModal()" aria-label="Sluiten">✕</button>
+        <div class="modal-ph" id="modalPh">Foto</div>
+        <h2 id="modalTitle">Titel</h2>
+        <p class="muted" id="modalDesc">Beschrijving</p>
+        <div class="modal-actions">
+          <a class="btn primary" href="contact.html">Vraag offerte</a>
+          <button class="btn ghost" onclick="closeModal()">Sluiten</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>BlinckyBill Keukens</strong>
+        <div class="muted small">Keukenmontage • Renovatie • Maatwerk</div>
+      </div>
+      <div class="muted small">© <span id="year"></span> BlinckyBill</div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

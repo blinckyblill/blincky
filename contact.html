@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact | BlinckyBill Keukens</title>
+  <meta name="description" content="Contacteer BlinckyBill Keukens voor offerte en vragen." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">BB</span>
+        <span class="brand-text"><strong>BlinckyBill</strong><small>Keukens</small></span>
+      </a>
+      <button class="nav-toggle" aria-label="Menu" aria-expanded="false">☰</button>
+      <nav class="nav" data-nav>
+        <a href="index.html">Home</a>
+        <a href="diensten.html">Diensten</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a class="active" href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="section">
+      <div class="container">
+        <h1>Contact</h1>
+        <p class="lead">Stuur je vraag. Je kunt ook direct bellen/whatsappen.</p>
+
+        <div class="grid2">
+          <div class="tile">
+            <h2>Gegevens</h2>
+            <div class="contact-lines">
+              <div><span>📞</span> <a href="tel:+31616698106">06 16698106</a></div>
+              <div><span>✉️</span> <a href="mailto:contactblinckybill@gmail.com">contactblinckybill@gmail.com</a></div>
+              <div><span>📍</span> Zeeland & omgeving</div>
+            </div>
+            <div class="divider"></div>
+            <p class="muted small">
+              Tip: voor een snelle prijsindicatie — stuur foto’s + afmetingen + locatie + gewenste datum.
+            </p>
+          </div>
+
+          <div class="tile">
+            <h2>Stuur een bericht</h2>
+
+            <!-- Static form: uses mailto so it works on GitHub Pages (no backend). -->
+            <form class="form" action="mailto:contactblinckybill@gmail.com" method="post" enctype="text/plain">
+              <label>
+                Naam
+                <input name="Naam" required placeholder="Jouw naam" />
+              </label>
+              <label>
+                Telefoon
+                <input name="Telefoon" placeholder="06..." />
+              </label>
+              <label>
+                Bericht
+                <textarea name="Bericht" required rows="5" placeholder="Wat wil je laten doen?"></textarea>
+              </label>
+              <button class="btn primary" type="submit">Verstuur</button>
+              <p class="muted small">*Deze knop opent je e-mail app met ingevulde tekst.</p>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>BlinckyBill Keukens</strong>
+        <div class="muted small">Keukenmontage • Renovatie • Maatwerk</div>
+      </div>
+      <div class="muted small">© <span id="year"></span> BlinckyBill</div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
