@@ -48,15 +48,18 @@
             <h2>Stuur een bericht</h2>
 
             <!-- Static form: uses mailto so it works on GitHub Pages (no backend). -->
-            <form class="form" id="waForm">
+           <h2>Stuur een bericht</h2>
+
+<form id="waForm" class="form">
+
   <label>
     Naam
-    <input id="waName" required placeholder="Jouw naam" />
+    <input id="waName" required placeholder="Jouw naam">
   </label>
 
   <label>
     Telefoon
-    <input id="waPhone" placeholder="06..." />
+    <input id="waPhone" placeholder="06...">
   </label>
 
   <label>
@@ -64,44 +67,21 @@
     <textarea id="waMsg" required rows="5" placeholder="Wat wil je laten doen?"></textarea>
   </label>
 
-  <button class="btn primary" type="submit">Verstuur via WhatsApp</button>
+  <button class="btn primary" type="submit">
+    Verstuur via WhatsApp
+  </button>
 
-  <p class="muted small">*De knop opent WhatsApp met je bericht.</p>
+  <p class="muted small">
+    Deze knop opent WhatsApp met je bericht.
+  </p>
+
 </form>
-              <label>
-                Naam
-                <input name="Naam" required placeholder="Jouw naam" />
-              </label>
-              <label>
-                Telefoon
-                <input name="Telefoon" placeholder="06..." />
-              </label>
-              <label>
-                Bericht
-                <textarea name="Bericht" required rows="5" placeholder="Wat wil je laten doen?"></textarea>
-              </label>
-              <button class="btn primary" type="submit">Verstuur</button>
-              <p class="muted small">*Deze knop opent je e-mail app met ingevulde tekst.</p>
-            </form>
-          </div>
-        </div>
 
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <div>
-        <strong>BlinckyBill Keukens</strong>
-        <div class="muted small">Keukenmontage • Renovatie • Maatwerk</div>
-      </div>
-      <div class="muted small">© <span id="year"></span> BlinckyBill</div>
-    </div>
   </footer>
 
   <script src="script.js"></script>
 </body>
 </html>
+
 
 
