@@ -12,27 +12,46 @@
   --max:1100px;
 }
 
+/* Base */
 *{ box-sizing:border-box; }
-
 html,body{
   margin:0;
   padding:0;
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-
-  /* Background logo watermark */
-  background:
-    linear-gradient(rgba(10,10,15,0.70), rgba(10,10,15,0.70)),
-    url("logo.jpg") center center no-repeat;
-
-  background-size: 600px;
-  background-attachment: fixed;
-
   color:var(--text);
+  background:
+    radial-gradient(1200px 800px at 20% 0%, rgba(124,92,255,.25), transparent 50%),
+    var(--bg);
+}
+
+/* Watermark background logo (SAFE, doesn't overlay content) */
+body{
+  position:relative;
+  min-height:100vh;
+}
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background: url("logo.jpg") center center no-repeat;
+  background-size: 620px;      /* mărime watermark */
+  opacity: 0.09;              /* cât de pronunțat (0.06–0.14) */
+  pointer-events:none;
+  z-index:0;
+}
+
+/* Ensure site content sits above watermark */
+.site-header,
+main,
+.site-footer{
+  position:relative;
+  z-index:1;
 }
 
 a{ color:inherit; text-decoration:none; }
 .container{ width:100%; max-width:var(--max); margin:0 auto; padding:0 18px; }
 
+/* Header */
 .site-header{
   position:sticky; top:0; z-index:50;
   backdrop-filter: blur(10px);
@@ -42,13 +61,23 @@ a{ color:inherit; text-decoration:none; }
 .header-inner{ display:flex; align-items:center; justify-content:space-between; padding:14px 0; gap:12px; }
 
 .brand{ display:flex; align-items:center; gap:10px; }
+.brand-text small{ display:block; color:var(--muted); margin-top:2px; }
+
+/* If you use <img class="logo"> in header */
+.logo{
+  height:42px;
+  width:auto;
+  border-radius:10px;
+  box-shadow: 0 8px 18px rgba(0,0,0,.35);
+}
+
+/* Old BB square (if still exists somewhere) */
 .brand-mark{
   width:42px; height:42px; display:grid; place-items:center;
   background: linear-gradient(135deg, rgba(124,92,255,.9), rgba(34,197,94,.7));
   border-radius: 14px; font-weight:800;
   box-shadow: var(--shadow);
 }
-.brand-text small{ display:block; color:var(--muted); margin-top:2px; }
 
 .nav{ display:flex; gap:14px; align-items:center; }
 .nav a{
@@ -69,14 +98,15 @@ a{ color:inherit; text-decoration:none; }
   cursor:pointer;
 }
 
+/* Hero */
 .hero{ padding:44px 0 10px; }
 .hero-inner{ display:grid; grid-template-columns: 1.2fr .8fr; gap:22px; align-items:stretch; }
 
 .hero-copy h1{ font-size: clamp(28px, 4vw, 46px); line-height:1.06; margin:0 0 10px; }
 .lead{ color:var(--muted); font-size: 1.05rem; margin:0 0 18px; max-width: 62ch; }
-
 .hero-actions{ display:flex; gap:10px; flex-wrap:wrap; margin: 16px 0 18px; }
 
+/* Buttons */
 .btn{
   display:inline-flex; align-items:center; justify-content:center;
   gap:8px;
@@ -94,9 +124,10 @@ a{ color:inherit; text-decoration:none; }
 .btn.ghost{ background: transparent; }
 
 .stats{ display:flex; gap:14px; flex-wrap:wrap; margin-top: 6px; }
-.stat{ display:flex; align-items:center; gap:10px; padding:10px 12px; border-radius: 14px; border:1px solid var(--line); background: rgba(255,255,255,.03); color:var(--muted); }
+.stat{ display:flex; align-items:center; gap:10px; padding:10px 12px; border-radius: 14px; border:1px solid var(--line); background: rgba(255,255,255,.03); color:var(--muted);}
 .stat strong{ color:var(--accent2); }
 
+/* Cards / tiles */
 .card, .tile, .portfolio-card{
   border: 1px solid var(--line);
   background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
@@ -123,9 +154,11 @@ a{ color:inherit; text-decoration:none; }
 
 .section-actions{ display:flex; gap:10px; flex-wrap:wrap; margin-top: 16px; }
 
+/* Portfolio preview cards on home */
 .portfolio-card{ overflow:hidden; }
 .pc-body{ padding:12px 14px; }
 
+/* Placeholder box */
 .ph{
   height: 160px;
   display:grid;
@@ -138,11 +171,41 @@ a{ color:inherit; text-decoration:none; }
   font-weight:700;
 }
 
+/* Portfolio page */
 .page{ padding-top: 8px; }
 
-.list{ margin:0; padding-left: 18px; color: var(--muted); }
-.list li{ margin: 6px 0; }
+.filters{ display:flex; gap:8px; flex-wrap:wrap; margin: 14px 0; }
+.chip{
+  border:1px solid var(--line);
+  background: rgba(255,255,255,.03);
+  padding: 9px 12px;
+  border-radius: 999px;
+  color: var(--muted);
+  cursor:pointer;
+  font-weight:650;
+}
+.chip.active{ border-color: rgba(124,92,255,.6); color: var(--text); background: rgba(124,92,255,.14); }
 
+.gallery{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.g-item{
+  border:1px solid var(--line);
+  border-radius: var(--radius);
+  overflow:hidden;
+  background: rgba(255,255,255,.02);
+}
+.g-meta{ padding: 10px 12px; display:flex; align-items:center; justify-content:space-between; gap:10px; }
+.g-item:hover{ transform: translateY(-1px); transition: transform .12s ease; }
+
+/* REAL portfolio images (K0.png etc.) */
+.portfolio-img{
+  width:100%;
+  height: 180px;
+  object-fit: cover;
+  display:block;
+  border-bottom:1px solid var(--line);
+}
+
+/* CTA */
 .cta{
   display:flex; align-items:center; justify-content:space-between;
   gap:14px;
@@ -159,30 +222,7 @@ a{ color:inherit; text-decoration:none; }
 .cta-row .tile{ flex: 1 1 380px; }
 .cta-row .btn{ align-self:center; }
 
-.filters{ display:flex; gap:8px; flex-wrap:wrap; margin: 14px 0; }
-.chip{
-  border:1px solid var(--line);
-  background: rgba(255,255,255,.03);
-  padding: 9px 12px;
-  border-radius: 999px;
-  color: var(--muted);
-  cursor:pointer;
-  font-weight:650;
-}
-.chip.active{ border-color: rgba(124,92,255,.6); color: var(--text); background: rgba(124,92,255,.14); }
-
-.gallery{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
-.g-item{ border:1px solid var(--line); border-radius: var(--radius); overflow:hidden; background: rgba(255,255,255,.02); }
-.g-meta{ padding: 10px 12px; display:flex; align-items:center; justify-content:space-between; gap:10px; }
-.g-item:hover{ transform: translateY(-1px); transition: transform .12s ease; }
-
-.portfolio-img{
-  width:100%;
-  height:160px;
-  object-fit:cover;
-  display:block;
-}
-
+/* Forms */
 .form{ display:grid; gap:12px; }
 label{ display:grid; gap:6px; color: var(--muted); font-weight:650; }
 input, textarea{
@@ -199,20 +239,23 @@ input:focus, textarea:focus{ border-color: rgba(124,92,255,.7); }
 .contact-lines{ display:grid; gap:10px; color: var(--muted); }
 .contact-lines span{ width:24px; display:inline-block; }
 
+/* Footer */
 .site-footer{ border-top:1px solid var(--line); padding: 18px 0; margin-top: 22px; }
 .footer-inner{ display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; }
 
-/* ✅ MODAL FIXED (no overlay unless open) */
+/* =========================
+   MODAL (FIXED CORRECTLY)
+   ========================= */
 .modal{
   position:fixed;
   inset:0;
   display:none;              /* hidden by default */
-  align-items:center;
-  justify-content:center;
   z-index:9999;
 }
 .modal.open{
-  display:flex;              /* show only when open */
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 .modal-backdrop{
   position:absolute;
@@ -222,8 +265,9 @@ input:focus, textarea:focus{ border-color: rgba(124,92,255,.7); }
 .modal-card{
   position:relative;
   width:min(720px, calc(100% - 26px));
+  margin:0;
   padding:14px;
-  border-radius:18px;
+  border-radius: var(--radius);
   border: 1px solid var(--line);
   background: rgba(18,20,32,.96);
   box-shadow: var(--shadow);
@@ -252,11 +296,13 @@ input:focus, textarea:focus{ border-color: rgba(124,92,255,.7); }
 }
 .modal-actions{ display:flex; gap:10px; margin-top: 12px; flex-wrap:wrap; }
 
+/* Responsive */
 @media (max-width: 900px){
   .hero-inner{ grid-template-columns: 1fr; }
   .grid3{ grid-template-columns: 1fr; }
   .gallery{ grid-template-columns: 1fr; }
   .grid2{ grid-template-columns: 1fr; }
+
   .nav-toggle{ display:inline-flex; }
   .nav{
     display:none;
@@ -271,11 +317,9 @@ input:focus, textarea:focus{ border-color: rgba(124,92,255,.7); }
     border-radius: 16px;
   }
   .nav.open{ display:flex; }
-}
 
-.logo{
-  height:46px;
-  width:auto;
-  border-radius:10px;
-  filter: drop-shadow(0 4px 8px rgba(0,0,0,.4));
+  body::before{
+    background-size: 420px;   /* watermark mai mic pe mobil */
+    opacity: 0.08;
+  }
 }
