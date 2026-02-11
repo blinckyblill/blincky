@@ -1,46 +1,71 @@
-// Mobile nav toggle + footer year + portfolio filter + modal
-const yearEl = document.getElementById("year");
-if (yearEl) yearEl.textContent = new Date().getFullYear();
+// BlinckyBill Keukens - script.js
 
-const toggleBtn = document.querySelector(".nav-toggle");
-const nav = document.querySelector("[data-nav]");
-if (toggleBtn && nav) {
-  toggleBtn.addEventListener("click", () => {
+// Year in footer
+(() => {
+  const y = document.getElementById("year");
+  if (y) y.textContent = new Date().getFullYear();
+})();
+
+// Mobile nav toggle
+(() => {
+  const btn = document.querySelector(".nav-toggle");
+  const nav = document.querySelector("[data-nav]");
+  if (!btn || !nav) return;
+
+  btn.addEventListener("click", () => {
     const isOpen = nav.classList.toggle("open");
-    toggleBtn.setAttribute("aria-expanded", String(isOpen));
+    btn.setAttribute("aria-expanded", String(isOpen));
   });
-}
+})();
 
 // Portfolio filters
-const chips = document.querySelectorAll(".chip");
-const items = document.querySelectorAll(".g-item");
-if (chips.length && items.length) {
+(() => {
+  const gallery = document.getElementById("gallery");
+  const chips = document.querySelectorAll(".chip[data-filter]");
+  if (!gallery || !chips.length) return;
+
+  const items = Array.from(gallery.querySelectorAll(".g-item"));
+
+  function applyFilter(tag) {
+    items.forEach((el) => {
+      const t = el.getAttribute("data-tag") || "";
+      const show = tag === "all" || t === tag;
+      el.style.display = show ? "" : "none";
+    });
+  }
+
   chips.forEach((chip) => {
     chip.addEventListener("click", () => {
       chips.forEach((c) => c.classList.remove("active"));
       chip.classList.add("active");
-
-      const filter = chip.getAttribute("data-filter");
-      items.forEach((it) => {
-        const tag = it.getAttribute("data-tag");
-        const show = filter === "all" || tag === filter;
-        it.style.display = show ? "" : "none";
-      });
+      applyFilter(chip.getAttribute("data-filter") || "all");
     });
   });
-}
+})();
 
-// Modal
+// Modal (image + zoom on click)
 const modal = document.getElementById("modal");
 const modalTitle = document.getElementById("modalTitle");
 const modalDesc = document.getElementById("modalDesc");
 const modalPh = document.getElementById("modalPh");
 
-window.openModal = function (title, desc, placeholder) {
-  if (!modal) return;
-  modalTitle.textContent = title;
-  modalDesc.textContent = desc;
-  modalPh.textContent = placeholder;
+window.openModal = function (title, desc, imageSrc) {
+  if (!modal || !modalTitle || !modalDesc || !modalPh) return;
+
+  modalTitle.textContent = title || "";
+  modalDesc.textContent = desc || "";
+
+  // Insert image
+  modalPh.innerHTML = `<img src="${imageSrc}" alt="${title || "foto"}">`;
+
+  // Zoom toggle on click
+  const img = modalPh.querySelector("img");
+  if (img) {
+    img.addEventListener("click", () => {
+      img.classList.toggle("is-zoomed");
+    });
+  }
+
   modal.classList.add("open");
   modal.setAttribute("aria-hidden", "false");
 };
@@ -49,16 +74,21 @@ window.closeModal = function () {
   if (!modal) return;
   modal.classList.remove("open");
   modal.setAttribute("aria-hidden", "true");
+
+  // Reset modal content (also clears zoom)
+  if (modalPh) modalPh.innerHTML = "";
 };
 
 // Close modal on ESC
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") window.closeModal?.();
 });
-// WhatsApp contact form (no backend needed)
-const waForm = document.getElementById("waForm");
 
-if (waForm) {
+// WhatsApp contact form (optional, if you added it in contact.html)
+(() => {
+  const waForm = document.getElementById("waForm");
+  if (!waForm) return;
+
   waForm.addEventListener("submit", (e) => {
     e.preventDefault();
 
@@ -75,5 +105,4 @@ if (waForm) {
     const url = `https://wa.me/31616698106?text=${encodeURIComponent(text)}`;
     window.open(url, "_blank");
   });
-}
-
+})();
