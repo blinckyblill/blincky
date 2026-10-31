@@ -1,20 +1,29 @@
-# BlinckyBill Keukens (GitHub Pages)
+# BlinckyBill Keukens — website (GitHub Pages)
 
-Static website (4 pages): Home, Diensten, Portfolio, Contact.
+Statische website op **https://blinckybillkeukens.nl** (zie `CNAME`), gepubliceerd vanaf de `main`-branch, map `/ (root)`.
 
-## Deploy on GitHub Pages
-1. Create a new repo on GitHub (e.g. `blinckybill-keukens`)
-2. Upload these files to the repo root
-3. Go to **Settings → Pages**
-4. Under **Build and deployment** choose:
-   - Source: **Deploy from a branch**
-   - Branch: **main**
-   - Folder: **/(root)**
-5. Save. Your site will be available at:
-   `https://<username>.github.io/<repo>/`
+## Pagina's
+- `index.html` — Home
+- `diensten.html` — Diensten
+- `portfolio.html` — Projecten (galerij met filters en vergroting)
+- `badkamermeubels.html` — Badkamermeubels
+- `contact.html` — Contact & offerteformulier (opent WhatsApp met ingevuld bericht)
+- `404.html` — foutpagina
 
-## Portfolio photos
-Replace placeholders with images:
-- Create folder `images/`
-- Put images there
-- Replace `<div class="ph">Foto X</div>` with `<img src="images/xxx.jpg" alt="..." />`
+## Opmaak
+- `styles.css` — basisopmaak en lay-out
+- `premium.css` — premium thema (antraciet & metaalgoud), geladen ná `styles.css`
+- `script.js` — menu, galerijfilters, foto-modal, WhatsApp-formulier
+
+## Logo
+- `blinckybill-premium-logo.png` — officieel logo (origineel, witte achtergrond)
+- `logo-blinckybill-keukens.webp` — volledig logo, transparant (footer)
+- `logo-emblem.webp` / `logo-emblem.png` — embleem (header)
+- `favicon-32.png`, `apple-touch-icon.png`, `og-image.jpg` — icoon en deel-afbeelding
+- `logo.jpg` — oud logo (bewaard als archief)
+
+## Foto's toevoegen aan Projecten
+1. Zet de foto als `.webp` (max. ca. 1400 px breed) in de root.
+2. Kopieer in `portfolio.html` een bestaande `<button class="g-item" …>` en pas `data-tag`, `data-title`, `data-desc`, `data-image`, `src` en `alt` aan.
+
+De originele foto's (`img01.png` … `img07.jpg`) blijven als bron bewaard; de site gebruikt geoptimaliseerde `.webp`-kopieën.
