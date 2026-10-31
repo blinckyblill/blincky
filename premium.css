@@ -1,0 +1,128 @@
+/* BlinckyBill Keukens — Premium 2026 (antraciet & metaalgoud)
+   Laag bovenop styles.css: alle bestaande klassen blijven werken. */
+:root{
+  --ink:#111111;--ink2:#1c1c1c;--accent:#c9a56a;--accent-dark:#b99353;--cream:#171717;--white:#fff;
+  --muted:#b6b3ae;--line:#39342e;--shadow:0 24px 60px rgba(0,0,0,.45);
+  --gold-grad:linear-gradient(135deg,#f3dca6 0%,#d8b979 28%,#a47a39 62%,#e2c78d 100%);
+  --text:#f5f0e8;
+}
+html{background:#111;color-scheme:dark}
+body{background:#111;color:var(--text)}
+h1,h2{font-family:'Playfair Display',Georgia,serif}
+h1{letter-spacing:-.03em}
+h3{color:#f6efe3}
+::selection{background:#c9a56a;color:#111}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:2px solid #d9b878;outline-offset:3px}
+.skip-link{position:absolute;left:12px;top:-60px;z-index:200;background:#d8b979;color:#111;padding:10px 16px;border-radius:8px;font-weight:800}
+.skip-link:focus{top:12px}
+
+/* Header */
+.site-header{background:rgba(15,15,15,.92);border-bottom:1px solid rgba(201,165,106,.22);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+.brand .logo{width:54px;height:54px;object-fit:contain;background:none;border:0;border-radius:0;filter:drop-shadow(0 4px 10px rgba(0,0,0,.5))}
+.brand-text strong{font-family:'Playfair Display',Georgia,serif;font-size:1.25rem;letter-spacing:-.01em;background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.brand-text strong em{font-style:normal;background:linear-gradient(180deg,#e9e4dc,#9c968d);-webkit-background-clip:text;background-clip:text;color:transparent}
+.brand-text small{color:#c9a56a;letter-spacing:.42em;font-size:.62rem}
+.nav a{color:#d0c7b8}
+.nav a:hover,.nav a.active{background:#2a251e;color:#f0d39b}
+.nav a.nav-cta,.nav a.nav-cta.active{background:var(--gold-grad);color:#18140f;box-shadow:0 6px 18px rgba(201,165,106,.18)}
+.nav a.nav-cta:hover{background:#e2c78d;color:#111}
+
+/* Hero */
+.hero{position:relative;background:radial-gradient(circle at 78% 28%,#322719 0%,transparent 40%),linear-gradient(125deg,#0f0f0f 5%,#1d1a17 100%);padding:95px 0 90px}
+.hero h1{color:#f9f2e8}
+.hero h1::after{content:"";display:block;width:84px;height:3px;margin-top:22px;background:var(--gold-grad);border-radius:2px}
+.hero .lead{color:#c6c0b6}
+.eyebrow{color:#d6ad69}.eyebrow.light{color:#e7c995}
+.btn.primary{background:var(--gold-grad);color:#18130e;border:0}
+.btn.primary:hover{background:#e5c68a;box-shadow:0 12px 26px rgba(201,165,106,.25)}
+.btn.secondary{background:transparent;border:1px solid #a98b5c;color:#f4e9d5}
+.btn.secondary:hover{background:#302719}
+.trust-row{color:#d3c6b4}.trust-row span::first-letter{color:#d8b979}
+.hero-visual::before{background:#b78b4e;opacity:.35}
+.hero-visual img{border:1px solid #6a5332}
+.experience-badge{background:#171717;border:1px solid #705634;color:#f4e7cf}
+.experience-badge span{color:#c9bba7}
+
+/* Secties */
+.section{background:#111}
+.section-heading>p,.service-card p,.process-grid p,.detail-card p,.contact-info>p{color:#bfb8ae}
+.service-card,.detail-card{background:#1b1b1b;border-color:#38332b}
+.service-card:hover{border-color:#a5834e}
+.service-number,.detail-card>span{color:#d8b979}
+.service-card a,.text-link{color:#d9b979}
+.projects-section{background:#1a1714}
+.project-card{border:1px solid #57442c;background:#1b1b1b}
+.process-grid{background:#3a342b;border-color:#3a342b}
+.process-grid>div{background:#1b1b1b}
+.process-grid>div>strong{background:#30271d;color:#dfbd80}
+.cta-panel{background:linear-gradient(120deg,#272016,#111);border:1px solid #7a5b34}
+.cta-panel p{color:#c8bca9}
+.btn.white{background:var(--gold-grad);color:#17120d;border:0}
+.btn.white:hover{background:#e2c78d}
+.page-hero{background:radial-gradient(circle at top right,#352718,transparent 45%),#171513}
+.page-hero .lead{color:#c4bcb1}
+.narrow p{color:#c4bcb1}
+.check-list li{border-color:#3a342c;color:#e8e0d3}
+.check-list li::before{color:#d8b979}
+
+/* Galerij & modal */
+.chip{background:#24211d;color:#e2d5c2;border-color:#5c4c35}
+.chip.active,.chip:hover{background:#c9a56a;border-color:#c9a56a;color:#17120d}
+.g-item{background:#1d1c1a;color:#f7f0e6;border:1px solid #40372a;box-shadow:0 8px 30px rgba(0,0,0,.3)}
+.g-item:hover{border-color:#8a6c40}
+.g-item small{color:#d2ae70;text-align:right}
+.g-item img{background:#262320}
+.modal-card{background:#191919;border:1px solid #4d3c29}
+.modal-copy h2{color:#f6efe3}
+.modal-copy p{color:#c2b7a9}
+.modal-close{background:#d8b979;color:#111}
+
+/* Contact */
+.contact-method{border-color:#3b342b}
+.contact-method>span,.quote-tip{background:#282219}
+.contact-method small{color:#c3b7a8}
+.contact-method:hover strong{color:#e2c78d}
+.quote-tip{border-left-color:#c9a56a}
+.quote-tip p{color:#c3b7a8}
+.contact-form{background:#1c1b19;border-color:#4d3c29;box-shadow:var(--shadow)}
+.contact-form input,.contact-form textarea,.contact-form select{background:#292724;color:#fff;border-color:#5b5143}
+.contact-form select option{background:#292724;color:#fff}
+.contact-form input::placeholder,.contact-form textarea::placeholder{color:#a9a297}
+.form-note{color:#bdb4a7}
+
+/* Footer */
+.site-footer{margin-top:0;background:#0b0b0b;border-top:1px solid #44351f}
+.footer-logo{width:170px;height:auto;margin:-6px 0 12px}
+.footer-inner strong{color:#f1e6d3}
+.footer-inner span,.footer-inner a{color:#c1b5a6}
+.footer-inner a:hover{color:#e2c78d}
+.footer-bottom{color:#968b7b}
+
+/* Premium elementen */
+.premium-kicker{display:inline-flex;align-items:center;gap:9px;color:#d7b675;text-transform:uppercase;font-weight:800;letter-spacing:.2em;font-size:.72rem;margin-bottom:16px}
+.premium-kicker:before{content:"";width:26px;height:1px;background:#d7b675}
+.premium-strip{background:var(--gold-grad);color:#19150f;padding:12px 0;text-align:center;font-size:.78rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+.premium-strip .container{display:flex;justify-content:center;flex-wrap:wrap;gap:18px}
+.premium-strip span+span:before{content:'✦';margin-right:18px}
+
+/* Zwevende WhatsApp-knop */
+.wa-float{position:fixed;right:18px;bottom:18px;z-index:60;width:56px;height:56px;border-radius:50%;display:grid;place-items:center;background:#25d366;color:#fff;box-shadow:0 10px 28px rgba(0,0,0,.45);transition:transform .2s ease}
+.wa-float:hover{transform:translateY(-3px)}
+body.modal-open .wa-float{display:none}
+
+@media(max-width:900px){
+  .nav{background:#191714;border-color:#51402c;top:76px}
+  .nav-toggle{background:#2d2419;color:#f4d6a0}
+  .hero{padding:60px 0}
+  .premium-strip .container{gap:8px}
+  .premium-strip span+span:before{margin-right:8px}
+}
+@media(max-width:600px){
+  .hero{padding:44px 0 55px}
+  .nav{top:68px}
+  .brand .logo{width:46px;height:46px}
+  .brand-text strong{font-size:1.08rem}
+  .premium-strip{font-size:.62rem;letter-spacing:.1em}
+  .experience-badge{right:10px;bottom:16px}
+  .wa-float{width:52px;height:52px;right:14px;bottom:14px}
+}
