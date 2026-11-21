@@ -54,6 +54,23 @@
       </div>
     </section>
 
+    <section class="section" id="blinckybill-video" hidden aria-labelledby="blinckybill-video-title">
+      <div class="container">
+        <div class="section-heading"><div><span class="eyebrow">BlinckyBill in beeld</span><h2 id="blinckybill-video-title">Vakmanschap in elk detail</h2></div><p>Bekijk onze korte merkfilm over keukenmontage. De beelden zijn AI-gegenereerde illustraties, geen opnames van uitgevoerde projecten.</p></div>
+        <video id="blinckybill-ad-player" controls playsinline preload="metadata" style="display:block;width:100%;max-width:1000px;margin:0 auto;border-radius:18px;background:#111;aspect-ratio:16/9" aria-label="BlinckyBill Keukens merkfilm van 25 seconden">
+          <source src="blinckybill-reclame.mp4" type="video/mp4">
+          Uw browser ondersteunt deze video niet.
+        </video>
+      </div>
+    </section>
+    <script>
+      (function () {
+        var video = document.getElementById('blinckybill-ad-player');
+        var section = document.getElementById('blinckybill-video');
+        video.addEventListener('loadedmetadata', function () { section.hidden = false; }, { once: true });
+      }());
+    </script>
+
     <div class="premium-strip" role="presentation"><div class="container"><span>Keukenmontage</span><span>Renovatie</span><span>Maatwerk</span><span>Nederland & België</span></div></div>
 
     <section class="section">
