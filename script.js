@@ -61,6 +61,12 @@ document.addEventListener('keydown', event => {
 });
 
 // Offerteformulier → WhatsApp
+const waService = document.getElementById('waService');
+if (waService) {
+  const preset = new URLSearchParams(window.location.search).get('dienst');
+  if (preset && [...waService.options].some(option => option.value === preset)) waService.value = preset;
+}
+
 const waForm = document.getElementById('waForm');
 if (waForm) waForm.addEventListener('submit', event => {
   event.preventDefault();
