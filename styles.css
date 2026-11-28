@@ -21,3 +21,93 @@ h1,h2,h3,p{margin-top:0}h1,h2{font-family:'Playfair Display',Georgia,serif;lette
 @media(max-width:900px){.container{width:min(100% - 28px,var(--max))}.nav-toggle{display:block}.nav{display:none;position:absolute;top:72px;left:14px;right:14px;padding:12px;flex-direction:column;align-items:stretch;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow)}.nav.open{display:flex}.nav a{padding:12px}.nav a.nav-cta{margin:2px 0 0;text-align:center}.hero{padding:48px 0}.hero-grid{grid-template-columns:1fr;gap:42px}.hero-visual img{height:min(480px,70vw)}.experience-badge{right:12px}.section{padding:68px 0}.section-heading{align-items:start;flex-direction:column}.service-grid,.detail-grid{grid-template-columns:1fr}.featured-projects{grid-template-columns:1fr;grid-template-rows:360px 280px 280px}.project-card.project-large{grid-row:auto}.process-grid{grid-template-columns:1fr}.process-grid.steps-4{grid-template-columns:1fr 1fr}.kitchen-line{grid-template-columns:1fr;gap:20px;align-items:start}.cta-panel{padding:38px 28px;align-items:flex-start;flex-direction:column}.gallery{grid-template-columns:repeat(2,1fr)}.contact-grid{grid-template-columns:1fr;gap:40px}.footer-inner{grid-template-columns:1fr 1fr}.footer-brand{grid-column:1/-1}.spec-grid .service-card h3{min-height:0}}
 @media(max-width:600px){h1{font-size:2.55rem}.header-inner{height:72px}.logo{width:42px;height:42px}.hero-actions,.hero-actions .btn,.cta-actions,.cta-actions .btn{width:100%}.trust-row{gap:10px 15px}.hero-visual img{height:350px}.service-card,.detail-card,.kitchen-line{padding:24px}.detail-card{grid-template-columns:1fr;gap:4px}.section{padding:56px 0}.page-hero{padding:58px 0 48px}.featured-projects{grid-template-rows:300px 240px 240px}.gallery,.line-photos,.process-grid.steps-4{grid-template-columns:1fr}.line-photos img{height:240px}.g-item img{height:280px}.contact-form{padding:25px 20px}.footer-inner{grid-template-columns:1fr}.footer-brand{grid-column:auto}.cta-panel{border-radius:16px}.section-heading{margin-bottom:28px}}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+
+/* Cookie-banner en footerlinks voor cookie-instellingen */
+.footer-bottom{display:flex;flex-wrap:wrap;align-items:center;gap:6px 16px}
+.footer-bottom a,
+.footer-bottom .footer-cookie-settings{
+  color:inherit;
+  background:none;
+  border:0;
+  padding:0;
+  margin:0;
+  font:inherit;
+  font-size:inherit;
+  cursor:pointer;
+  text-decoration:underline;
+  text-underline-offset:3px;
+}
+.footer-bottom .footer-cookie-settings:hover,
+.footer-bottom a:hover{color:#e9d5b5}
+.cookie-banner{
+  position:fixed;
+  left:0;
+  right:0;
+  bottom:0;
+  z-index:80;
+  padding:16px;
+  background:#0d121b;
+  color:#fff;
+  box-shadow:0 -16px 40px rgba(0,0,0,.28);
+}
+.cookie-banner-inner{
+  width:min(var(--max),calc(100% - 8px));
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+}
+.cookie-banner-copy{max-width:760px}
+.cookie-banner-title{
+  font-weight:800;
+  font-size:1.02rem;
+  margin:0 0 6px;
+}
+.cookie-banner p#cookie-banner-text{
+  margin:0;
+  color:#c5ccd6;
+  font-size:.92rem;
+}
+.cookie-banner a{
+  color:#e9d5b5;
+  text-decoration:underline;
+  text-underline-offset:3px;
+  font-weight:700;
+}
+.cookie-banner-actions{
+  display:flex;
+  gap:10px;
+  flex-shrink:0;
+}
+.cookie-banner-actions .btn{
+  min-width:148px;
+  min-height:50px;
+  padding:12px 22px;
+  font-size:1rem;
+  font-weight:700;
+}
+.cookie-btn-reject{
+  background:transparent;
+  color:#fff;
+  border:1px solid rgba(255,255,255,.55);
+}
+.cookie-btn-reject:hover{background:rgba(255,255,255,.08);transform:translateY(-2px)}
+.cookie-btn-accept{
+  background:var(--accent-dark);
+  color:#fff;
+  border-color:var(--accent-dark);
+}
+.cookie-btn-accept:hover{background:#765124;box-shadow:0 12px 26px rgba(149,107,47,.25)}
+body.cookie-banner-open{padding-bottom:8rem}
+body.cookie-banner-open .wa-float{bottom:7.5rem}
+@media(max-width:800px){
+  .cookie-banner-inner{flex-direction:column;align-items:stretch;gap:16px}
+  .cookie-banner-actions{width:100%}
+  .cookie-banner-actions .btn{flex:1 1 0;min-width:0}
+  body.cookie-banner-open{padding-bottom:14rem}
+  body.cookie-banner-open .wa-float{bottom:13.5rem}
+}
+@media(max-width:600px){
+  .cookie-banner{padding:14px}
+}
