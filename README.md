@@ -5,15 +5,26 @@ Statische website op **https://blinckybillkeukens.nl** (zie `CNAME`), gepublicee
 ## Pagina's
 - `index.html` — Home
 - `diensten.html` — Diensten
+- `keukens-kopen.html` — Keukens kopen
 - `portfolio.html` — Projecten (galerij met filters en vergroting)
+- `over-ons.html` — Over ons
 - `badkamermeubels.html` — Badkamermeubels
 - `contact.html` — Contact & offerteformulier (opent WhatsApp met ingevuld bericht)
+- `privacyverklaring.html` — Privacyverklaring
 - `404.html` — foutpagina
 
 ## Opmaak
 - `styles.css` — basisopmaak en lay-out
 - `premium.css` — premium thema (antraciet & metaalgoud), geladen ná `styles.css`
 - `script.js` — menu, galerijfilters, foto-modal, WhatsApp-formulier
+- `analytics-config.js` — GA4 Measurement ID (plak hier het echte Meet-ID, vorm `G-XXXXXXXXXX`)
+- `cookie-consent.js` — cookiebanner en Google Consent Mode v2 (Analytics laadt pas ná toestemming)
+
+## Google Analytics
+1. Maak een GA4-property en webstream voor https://blinckybillkeukens.nl.
+2. Kopieer het Meet-ID (Beheer → Gegevensstreams → Meet-ID).
+3. Plak het in `analytics-config.js` in de constante `GA_MEASUREMENT_ID`, in plaats van de placeholder `G-XXXXXXXXXX`.
+4. Merge deze wijziging naar `main` om hem live te zetten. Zonder een echt Meet-ID wordt Analytics niet geladen.
 
 ## Logo
 - `blinckybill-premium-logo.png` — officieel logo (origineel, witte achtergrond)
